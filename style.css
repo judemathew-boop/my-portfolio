@@ -1,11 +1,21 @@
 /*==============================
+    Variables
+==============================*/
+:root {
+    --background-color: #f4f4f4;
+    --text-color: #222222;
+    --card-color: #ffffff;
+    --accent-color: #333333;
+}
+
+/*==============================
     General
 ==============================*/
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #222222;
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 h1 { 
     font-size: 40px;
@@ -13,6 +23,7 @@ h1 {
 p {
     line-height: 1.6;
 }
+
 /*==============================
     Theme
 ==============================*/
@@ -23,12 +34,14 @@ p {
 .dark-mode .section {
     background-color: #333333;
 }
+
 /*==============================
     Highlight
 ==============================*/
 .highlight {
     color: blue;
 }
+
 /*==============================
     Header
 ==============================*/
@@ -36,14 +49,45 @@ header {
     text-align: center;
     padding: 40px;
 }
-img {
-    width: 200px;
-    height: auto;
-    padding: 30px;
-}
+
 /*==============================
-    Navigation
+    Hero Section
 ==============================*/
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.hero-content img {
+    width: 180px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.hero-intro {
+    margin: 0;
+    font-size: 18px;
+}
+.hero-title {
+    font-size: 24px;
+    margin: 10px;
+}
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+.hero-buttons a {
+    display: inline-block;
+    padding: 12px 20px;
+    text-decoration: none;
+    border-radius: 6px;
+    background-color: var(--accent-color);
+    color: white;
+}
 nav {
     display: flex;
     flex-direction: row;
@@ -51,14 +95,21 @@ nav {
     gap: 30px;
     margin-top: 20px;
 }
+
 /*==============================
     Section
 ==============================*/
+.container{
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
 .section {
     background-color: white;
     padding: 30px;
     margin-bottom: 20px;
 }
+
 /*==============================
     Skills
 ==============================*/
@@ -67,6 +118,7 @@ nav {
     justify-content: center;
     gap: 30px;
 }
+
 /*==============================
     Project
 ==============================*/
@@ -76,7 +128,7 @@ nav {
     gap: 20px;
 }
 .project-card {
-    background-color: white;
+    background-color: var(--card-color);
     padding: 20px;
     border-radius: 8px;
     box-sizing: border-box;
@@ -94,9 +146,25 @@ nav {
     border-radius: 5px;
     font-size: 14px;
 }
+
 /*==============================
     Contacts
 ==============================*/
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+input, textarea{
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    font:inherit;
+}
+textarea{
+    min-height: 150px;
+    resize: vertical;
+}
 #formMessage {
     margin-top: 10px;
     font-weight: bold;
@@ -107,6 +175,7 @@ nav {
 .error {
     color: red;
 }
+
 /*==============================
     Back to Top
 ==============================*/
@@ -116,10 +185,21 @@ nav {
     bottom: 20px;
     padding: 10px 15px;
 }
+
 /*==============================
     Responsive
 ==============================*/
 @media (max-width: 600px) {
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-buttons {
+        flex-direction: column;
+    }
+    #projectContainer {
+        grid-template-columns: 1fr;
+    }
     nav {
         flex-direction: column;
     }
