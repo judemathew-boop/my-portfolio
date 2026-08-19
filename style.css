@@ -1,0 +1,135 @@
+/*==============================
+    General
+==============================*/
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #222222;
+}
+h1 { 
+    font-size: 40px;
+}
+p {
+    line-height: 1.6;
+}
+/*==============================
+    Theme
+==============================*/
+.dark-mode {
+    background-color: #222222;
+    color: white;
+}
+.dark-mode .section {
+    background-color: #333333;
+}
+/*==============================
+    Highlight
+==============================*/
+.highlight {
+    color: blue;
+}
+/*==============================
+    Header
+==============================*/
+header {
+    text-align: center;
+    padding: 40px;
+}
+img {
+    width: 200px;
+    height: auto;
+    padding: 30px;
+}
+/*==============================
+    Navigation
+==============================*/
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+/*==============================
+    Section
+==============================*/
+.section {
+    background-color: white;
+    padding: 30px;
+    margin-bottom: 20px;
+}
+/*==============================
+    Skills
+==============================*/
+.skills-list {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+/*==============================
+    Project
+==============================*/
+#projectContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.project-card {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    width: 250px;
+}
+.project-card ul{
+    display: felx;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0;
+    list-style: none;
+}
+.project-card li{
+    background-color: #eeeeee;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+/*==============================
+    Contacts
+==============================*/
+#formMessage {
+    margin-top: 10px;
+    font-weight: bold;
+}
+.success {
+    color: green;
+}
+.error {
+    color: red;
+}
+/*==============================
+    Back to Top
+==============================*/
+.back-to-top {
+    position:fixed;
+    right: 20px;
+    bottom: 20px;
+    padding: 10px 15px;
+}
+/*==============================
+    Responsive
+==============================*/
+@media (max-width: 550px){
+    nav {
+        flex-direction: column;
+    }
+    .section{
+        padding: 20px;
+    }
+    h1{
+        font-size: 30px;
+    }
+    .skills-list{
+        flex-direction: column;
+    }
+}
