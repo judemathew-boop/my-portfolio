@@ -36,17 +36,26 @@ let projects = [
     {
         title:"My Portfolio",
         description:"I built this portfolio while learning Web Development.",
-        technologies: ["HTML", "CSS", "JavaScript"]
+        technologies: ["HTML", "CSS", "JavaScript"],
+        link: "https://example.com"
     },
     {
         title:"Online OJT portal and monitoring",
         description:"A web-based platform designed to manage and monitor On-the-Job Training (OJT) activities.",
-        technologies: ["HTML", "CSS", "JavaScript"]
+        technologies: ["HTML", "CSS", "JavaScript"],
+        link: "https://example.com"
     },
     {
         title:"To-do List",
         description:"A simple application for managing tasks.",
-        technologies: ["HTML", "CSS", "JavaScript"]
+        technologies: ["HTML", "CSS", "JavaScript"],
+        link: "https://example.com"
+    },
+    {
+        title:"Library Management System",
+        description:"A web application for managing borrowed and returned books in a library.",
+        technologies: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
+        link: "https://example.com"
     },
     {
         title:"Weather App",

@@ -71,15 +71,15 @@ nav {
     Project
 ==============================*/
 #projectContainer {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
 .project-card {
-    background-color: #f4f4f4;
+    background-color: white;
     padding: 20px;
     border-radius: 8px;
-    width: 250px;
+    box-sizing: border-box;
 }
 .project-card ul{
     display: felx;
@@ -119,7 +119,7 @@ nav {
 /*==============================
     Responsive
 ==============================*/
-@media (max-width: 550px){
+@media (max-width: 600px) {
     nav {
         flex-direction: column;
     }
@@ -131,5 +131,10 @@ nav {
     }
     .skills-list{
         flex-direction: column;
+    }
+}
+@media (max-width: 800px){
+    #projectContainer {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
