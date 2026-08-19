@@ -1,30 +1,34 @@
-let themeButton = document.getElementById("toggleTheme");
+function setupTheme() {
+    let themeButton = document.getElementById("toggleTheme");
 
-themeButton.addEventListener("click", function() {
-    document.body.classList.toggle("dark-mode");
+    themeButton.addEventListener("click", function() {
+        document.body.classList.toggle("dark-mode");
 
-    if(document.body.classList.contains("dark-mode")) {
-        themeButton.textContent = "Light Mode";
-    } else {
-        themeButton.textContent = "Dark Mode";
-    }
-});
+        if(document.body.classList.contains("dark-mode")) {
+            themeButton.textContent = "Light Mode";
+        } else {
+            themeButton.textContent = "Dark Mode";
+        }
+    });
+}
 
-let heading = document.getElementById("mainHeading");
-let button = document.getElementById("welcomeButton");
+function setupHeadingButtons() {
+    let heading = document.getElementById("mainHeading");
+    let button = document.getElementById("welcomeButton");
 
-button.addEventListener("click", function() {
-    heading.textContent = "Welcome to my Portfolio";
-    heading.classList.add("highlight");
-});
+    button.addEventListener("click", function() {
+        heading.textContent = "Welcome to my Portfolio";
+        heading.classList.add("highlight");
+    });
 
-let resetButton = document.getElementById("resetButton");
-let originalText = heading.textContent;
+    let resetButton = document.getElementById("resetButton");
+    let originalText = heading.textContent;
 
-resetButton.addEventListener("click", function() {
-    heading.textContent = originalText;
-    heading.classList.remove("highlight");
-});
+    resetButton.addEventListener("click", function() {
+        heading.textContent = originalText;
+        heading.classList.remove("highlight");
+    });
+}
 
 let skills = ["HTML", "CSS", "JavaScript"];
 
@@ -71,8 +75,6 @@ let projects = [
     },
 ];
 
-let projectContainer = document.getElementById("projectContainer");
-
 function createProjectCard(project) {
     let card = document.createElement("div");
     let title = document.createElement("h3");
@@ -109,31 +111,69 @@ function createProjectCard(project) {
     return card;
 }
 
+function displayProjects() {
+    let projectContainer = document.getElementById("projectContainer");
+
     for (let project of projects) {
         let card = createProjectCard(project);
 
         projectContainer.appendChild(card);
     }
+}
 
-let contactForm = document.getElementById("contactForm");
-let formMessage = document.getElementById("formMessage");
+function setupContactForm() {
+    let contactForm = document.getElementById("contactForm");
+    let formMessage = document.getElementById("formMessage");
 
-contactForm.addEventListener("submit", function (event) {
-    event.preventDefault();
+    contactForm.addEventListener("submit", function (event) {
+        event.preventDefault();
 
-    let name = document.getElementById("name").value.trim();
-    let email = document.getElementById("email").value.trim();
-    let message = document.getElementById("message").value.trim();
+        let name = document.getElementById("name").value.trim();
+        let email = document.getElementById("email").value.trim();
+        let message = document.getElementById("message").value.trim();
 
-    if (name === "" || email === "" || message === "") {
-        formMessage.textContent = "Please complete all fields.";
+        if (name === "" || email === "" || message === "") {
+            formMessage.textContent = "Please complete all fields.";
 
-        formMessage.classList.remove("success");
-        formMessage.classList.add("error");
-    } else {
-        formMessage.textContent = "Message sent!";
+            formMessage.classList.remove("success");
+            formMessage.classList.add("error");
+        } else {
+            formMessage.textContent = "Message sent!";
 
-        formMessage.classList.remove("error");
-        formMessage.classList.add("success");
-    }
-});
+            formMessage.classList.remove("error");
+            formMessage.classList.add("success");
+        }
+    });
+}
+
+function setupActiveNavigation() {
+    let navLinks = document.querySelectorAll("nav a");
+    let sections = document.querySelectorAll("section");
+
+    window.addEventListener("scroll", function() {
+        let currentSection = "";
+
+        for (let section of sections) {
+            let sectionTop = section.offsetTop;
+            let sectionHeight = section.clientHeight;
+    
+            if (window.scrollY >= sectionTop - sectionHeight / 3) {
+                currentSection = section.id;
+            }
+        }
+
+        for (let link of navLinks) {
+            link.classList.remove("active");
+
+            if (link.getAttribute("href") === "#" + currentSection) {
+                link.classList.add("active");
+            }
+        }
+    });
+}
+
+setupTheme();
+setupHeadingButtons();
+displayProjects();
+setupContactForm();
+setupActiveNavigation();
