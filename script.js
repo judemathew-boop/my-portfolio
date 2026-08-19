@@ -30,10 +30,18 @@ function setupHeadingButtons() {
     });
 }
 
-let skills = ["HTML", "CSS", "JavaScript"];
+let skills = ["HTML", "CSS", "JavaScript", "Responsive Design", "Git", "GitHub"];
 
-for (let skill of skills) {
-    console.log("I am learning " + skill);
+function displaySkills() {
+    let skillsList = document.getElementById("skillsList");
+
+    for (let skill of skills) {
+        let skillItem = document.createElement("li");
+
+        skillItem.textContent = skill;
+
+        skillsList.appendChild(skillItem);
+    }
 }
 
 let projects = [
@@ -174,6 +182,7 @@ function setupActiveNavigation() {
 
 setupTheme();
 setupHeadingButtons();
+displaySkills();
 displayProjects();
 setupContactForm();
 setupActiveNavigation();
