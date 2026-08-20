@@ -6,6 +6,32 @@
     --text-color: #222222;
     --card-color: #ffffff;
     --accent-color: #333333;
+
+    --spacing-small: 8px;
+    --spacing-medium: 16px;
+    --spacing-large: 32px;
+    --spacing-section: 60px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/*==============================
+    Theme Variables
+==============================*/
+.dark-mode {
+    --background-color: #222222;
+    --text-color: #ffffff;
+    --card-color: #333333;
+    --accent-color: #555555;
+}
+
+/*==============================
+    Dark Mode
+==============================*/
+.dark-mode nav a {
+    color: var(--text-color)
 }
 
 /*==============================
@@ -25,24 +51,25 @@ section {
 body {
     margin: 0;
     font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
     background-color: var(--background-color);
     color: var(--text-color);
 }
 
 h1 { 
-    font-size: 40px;
+    margin: 0;
+    font-size: 48px;
+    line-height: 1.1;
 }
 
-p {
-    line-height: 1.6;
+h2 {
+    margin-top: 0;
+    font-size: 32px;
 }
 
-/*==============================
-    Theme
-==============================*/
-.dark-mode {
-    background-color: #222222;
-    color: white;
+h3 {
+    margin-top: 0;
 }
 
 .dark-mode .section {
@@ -57,16 +84,13 @@ p {
 }
 
 /*==============================
-    Header
+    Hero Section
 ==============================*/
 header {
     text-align: center;
-    padding: 40px;
+    padding: 80px 20px;
 }
 
-/*==============================
-    Hero Section
-==============================*/
 .hero-content {
     display: flex;
     align-items: center;
@@ -78,7 +102,7 @@ header {
 
 .hero-content img {
     width: 180px;
-    height: auto;
+    height: 180px;
     object-fit: cover;
     border-radius: 50%;
 }
@@ -108,6 +132,10 @@ header {
     color: white;
 }
 
+.hero-buttons a:hover {
+    opacity: 0.85;
+}
+
 /*==============================
     Navigation
 ==============================*/
@@ -115,21 +143,24 @@ nav {
     display:flex;
     justify-content: center;
     gap: 20px;
-    padding: 15px;
+    padding: 16px 20px;
     background-color: var(--card-color);
     position: sticky;
     top: 0;
     z-index: 1000;
+    border-bottom: 1px solid #dddddd;
 }
 
 nav a {
     font-weight: bold;
     text-decoration: none;
-    text-underline-offset: 5px;
+    color: var(--text-color);
 }
 
 nav a.active {
+    color: var(--accent-color);
     text-decoration: underline;
+    text-underline-offset: 5px;
 }
 
 .dark-mode nav {
@@ -140,6 +171,13 @@ nav a.active {
     color: white;
 }
 
+nav a:focus-visible,
+button:focus-visible,
+a.btn:focus-visible {
+    outline: 3px solid blue;
+    outline-offset: 3px;
+}
+
 /*==============================
     Section
 ==============================*/
@@ -147,12 +185,14 @@ nav a.active {
     width: 90%;
     max-width: 1000px;
     margin: 0 auto;
+    padding: 40px 0;
 }
 
 .section {
-    background-color: white;
-    padding: 30px;
-    margin-bottom: 20px;
+    background-color: var(--card-color);
+    padding: var(--spacing-section);
+    margin-bottom: var(--spacing-large);
+    border-radius: 12px;
 }
 
 /*==============================
@@ -175,9 +215,14 @@ nav a.active {
 
 .project-card {
     background-color: var(--card-color);
-    padding: 20px;
-    border-radius: 8px;
-    box-sizing: border-box;
+    padding: var(--spacing-medium);
+    border-radius: 12px;
+    border: 1px solid #dddddd;
+    transition: transform 0.2s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
 }
 
 .project-card ul{
@@ -205,9 +250,13 @@ nav a.active {
     display: inline-block;
     padding: 8px 12px;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 6px;
     background-color: var(--accent-color);
     color: white;
+}
+
+.project-links a:hover {
+    opacity: 0.85;
 }
 
 /*==============================
@@ -221,8 +270,7 @@ form{
 
 input, textarea{
     width: 100%;
-    padding: 10px;
-    box-sizing: border-box;
+    padding: var(--spacing-small);
     font:inherit;
 }
 
@@ -244,6 +292,20 @@ textarea{
     color: red;
 }
 
+button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--accent-color);
+    color: white;
+    font: inherit;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.85;
+}
+
 /*==============================
     Back to Top
 ==============================*/
@@ -252,6 +314,14 @@ textarea{
     right: 20px;
     bottom: 20px;
     padding: 10px 15px;
+    background-color: var(--accent-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+}
+
+.back-to-top:hover {
+    opacity: 0.85;
 }
 
 /*==============================
@@ -279,10 +349,10 @@ textarea{
         align-items: center;
     }
     .section{
-        padding: 20px;
+        padding: var(--spacing-medium);
     }
     h1{
-        font-size: 30px;
+        font-size: 34px;
     }
     .skills-list{
         flex-direction: column;

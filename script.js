@@ -12,24 +12,6 @@ function setupTheme() {
     });
 }
 
-function setupHeadingButtons() {
-    let heading = document.getElementById("mainHeading");
-    let button = document.getElementById("welcomeButton");
-
-    button.addEventListener("click", function() {
-        heading.textContent = "Welcome to my Portfolio";
-        heading.classList.add("highlight");
-    });
-
-    let resetButton = document.getElementById("resetButton");
-    let originalText = heading.textContent;
-
-    resetButton.addEventListener("click", function() {
-        heading.textContent = originalText;
-        heading.classList.remove("highlight");
-    });
-}
-
 let skills = ["HTML", "CSS", "JavaScript", "Responsive Design", "Git", "GitHub"];
 
 function displaySkills() {
@@ -85,7 +67,7 @@ let projects = [
 ];
 
 function createProjectCard(project) {
-    let card = document.createElement("div");
+    let card = document.createElement("article");
     let title = document.createElement("h3");
     let description = document.createElement("p");
     let technologyList = document.createElement("ul");
@@ -116,6 +98,7 @@ function createProjectCard(project) {
         liveLink.textContent = "View Project";
         liveLink.href = project.liveUrl;
         liveLink.target = "_blank";
+        liveLink.rel = "noopener noreferrer";
 
         projectLink.appendChild(liveLink);        
     }
@@ -126,6 +109,7 @@ function createProjectCard(project) {
         githubLink.textContent = "View on GitHub";
         githubLink.href = project.githubUrl;
         githubLink.target = "_blank";
+        githubLink.rel = "noopener noreferrer";
 
         projectLink.appendChild(githubLink);
     }
@@ -196,7 +180,6 @@ function setupActiveNavigation() {
 }
 
 setupTheme();
-setupHeadingButtons();
 displaySkills();
 displayProjects();
 setupContactForm();
