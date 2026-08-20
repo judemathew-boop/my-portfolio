@@ -31,38 +31,32 @@ let projects = [
         title:"My Portfolio",
         description:"I built this portfolio while learning Web Development.",
         technologies: ["HTML", "CSS", "JavaScript"],
-        liveUrl: "https://example.com",
         githubUrl: "https://github.com/judemathew-boop/my-portfolio"
     },
     {
         title:"Online OJT portal and monitoring",
         description:"A web-based platform designed to manage and monitor On-the-Job Training (OJT) activities.",
-        technologies: ["HTML", "CSS", "JavaScript"],
-        liveUrl: "https://example.com"
+        technologies: ["HTML", "CSS", "JavaScript"]
     },
     {
         title:"To-do List",
         description:"A simple application for managing tasks.",
-        technologies: ["HTML", "CSS", "JavaScript"],
-        liveUrl: "https://example.com"
+        technologies: ["HTML", "CSS", "JavaScript"]
     },
     {
         title:"Library Management System",
         description:"A web application for managing borrowed and returned books in a library.",
-        technologies: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
-        liveUrl: "https://example.com"
+        technologies: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"]
     },
     {
         title:"Weather App",
         description:"A web application that displays weather information.",
-        technologies: ["HTML", "CSS", "JavaScript", "API"],
-        liveUrl: "https://example.com"
+        technologies: ["HTML", "CSS", "JavaScript", "API"]
     },
     {
         title:"Calculator",
         description: "A simple Calculator.",
-        technologies: ["HTML", "CSS", "JavaScript"],
-        liveUrl: "https://example.com"
+        technologies: ["HTML", "CSS", "JavaScript"]
     },
 ];
 
