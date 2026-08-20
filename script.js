@@ -49,37 +49,38 @@ let projects = [
         title:"My Portfolio",
         description:"I built this portfolio while learning Web Development.",
         technologies: ["HTML", "CSS", "JavaScript"],
-        link: "https://example.com"
+        liveUrl: "https://example.com",
+        githubUrl: "https://github.com/judemathew-boop/my-portfolio"
     },
     {
         title:"Online OJT portal and monitoring",
         description:"A web-based platform designed to manage and monitor On-the-Job Training (OJT) activities.",
         technologies: ["HTML", "CSS", "JavaScript"],
-        link: "https://example.com"
+        liveUrl: "https://example.com"
     },
     {
         title:"To-do List",
         description:"A simple application for managing tasks.",
         technologies: ["HTML", "CSS", "JavaScript"],
-        link: "https://example.com"
+        liveUrl: "https://example.com"
     },
     {
         title:"Library Management System",
         description:"A web application for managing borrowed and returned books in a library.",
         technologies: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
-        link: "https://example.com"
+        liveUrl: "https://example.com"
     },
     {
         title:"Weather App",
         description:"A web application that displays weather information.",
         technologies: ["HTML", "CSS", "JavaScript", "API"],
-        link: "https://example.com"
+        liveUrl: "https://example.com"
     },
     {
         title:"Calculator",
         description: "A simple Calculator.",
         technologies: ["HTML", "CSS", "JavaScript"],
-        link: "https://example.com"
+        liveUrl: "https://example.com"
     },
 ];
 
@@ -106,15 +107,30 @@ function createProjectCard(project) {
     card.appendChild(description);
     card.appendChild(technologyList);
 
-    if (project.link) {
-        let projectLink = document.createElement("a");
+    let projectLink = document.createElement("div");
+    projectLink.classList.add("project-links");
 
-        projectLink.textContent = "View Project";
-        projectLink.href = project.link;
-        projectLink.target = "_blank";
+    if (project.liveUrl) {
+        let liveLink = document.createElement("a");
 
-        card.appendChild(projectLink);
+        liveLink.textContent = "View Project";
+        liveLink.href = project.liveUrl;
+        liveLink.target = "_blank";
+
+        projectLink.appendChild(liveLink);        
     }
+
+    if (project.githubUrl) {
+        let githubLink = document.createElement("a");
+
+        githubLink.textContent = "View on GitHub";
+        githubLink.href = project.githubUrl;
+        githubLink.target = "_blank";
+
+        projectLink.appendChild(githubLink);
+    }
+
+    card.appendChild(projectLink);
 
     return card;
 }
@@ -156,19 +172,18 @@ function setupContactForm() {
 
 function setupActiveNavigation() {
     let navLinks = document.querySelectorAll("nav a");
-    let sections = document.querySelectorAll("section");
+    let sections = document.querySelectorAll("main section");
 
     window.addEventListener("scroll", function() {
-        let currentSection = "";
+        let currentSection = "home";
 
         for (let section of sections) {
-            let sectionTop = section.offsetTop;
-            let sectionHeight = section.clientHeight;
-    
-            if (window.scrollY >= sectionTop - sectionHeight / 3) {
+            let sectionTop = section.getBoundingClientRect().top;
+
+            if (sectionTop <= 120) {
                 currentSection = section.id;
             }
-        }
+        }   
 
         for (let link of navLinks) {
             link.classList.remove("active");
